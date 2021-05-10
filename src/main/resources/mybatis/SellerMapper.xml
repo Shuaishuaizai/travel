@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--        //dao类的全限定名-->
+<mapper namespace="com.yx.dao.SellerDao">
+    <select id="findSellerList" parameterType="com.yx.bean.Seller" resultType="com.yx.bean.Seller">
+        select * from tab_seller where 1=1
+        <if test="sname!=null and sname!=''">
+            and sname like '%${sname}%'
+        </if>
+        <if test="address!=null and address!=''">
+            and address like '%${address}%'
+        </if>
+    </select>
+</mapper>

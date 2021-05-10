@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--        //dao类的全限定名-->
+<mapper namespace="com.yx.dao.UserDao">
+    <select id="findUserList" parameterType="com.yx.bean.User" resultType="com.yx.bean.User">
+        select * from tab_user where 1=1
+        <if test="name!=null and name!=''">
+            and name like '%${name}%'
+        </if>
+        <if test="email!=null and email!=''">
+            and email like '%${email}%'
+        </if>
+    </select>
+</mapper>
